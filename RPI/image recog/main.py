@@ -8,7 +8,7 @@ a = input(str("Any number between 1 and 90: "))
 
 hog = cv2.HOGDescriptor()
 hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
-path = 'Images\\FudanPed0000'+a+'.png'
+path = 'FudanPed0000'+a+'.png'
 
 # Reading the Image
 img_src = cv2.imread(path, 0)
