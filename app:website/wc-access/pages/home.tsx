@@ -1,52 +1,49 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import appp from '../App';
-import { StyleSheet, Text, View , Image, TouchableHighlight } from 'react-native';
-export default function App() {
+import {AppNavigator} from '../Routes/Router';
+import navigator from '../App';
+import { StyleSheet, Text, View , Image, TouchableOpacity } from 'react-native';
+
+export default function App({navigation} : {navigation:any}) {
   const navigationOptions = {
     title: 'Home Page',
-    //Sets Header text of Status Bar
   };
-
     return (
 
-      <View style={styles.container}>
-        <View>
-        <Text style={styles.textstyle}>WC COLLAR</Text></View>
-        <Image source = {require('../images/portlog.png')}
-       style = {{ width : 1366, height:650 ,}}
-       />
-       <View>
-        <Text  style={styles.textstyle2}>WC CIRCLET</Text></View>
-        <StatusBar style="auto" />
+      <View >
+        <View style={styles.container}>
+      <View ><TouchableOpacity onPress={()=> navigation.navigate("Collar")} style={{width:90,height:40}}>
+       <Text  style={styles.textstyle}> WC           COLLAR</Text></TouchableOpacity></View>
+       <View><TouchableOpacity onPress={()=> navigation.navigate("Circlet")} style={{width:90,height:40}}>
+        <Text  style={styles.textstyle2}>          WC CIRCLET</Text></TouchableOpacity></View>
+        
+        </View>
+        <View  style={styles.container}>
+       <Image source = {require('../images/portlog.png')}
+       style = {{ width : 1366, height:650 ,position:'absolute',top:200,}}
+       /><StatusBar style="auto" /></View>
       </View>
     );
 }
 
 const styles = StyleSheet.create({
   textstyle: {
-    marginTop: 130 ,
-    marginBottom:-150 ,
+    position:'absolute',
     fontWeight: 'bold',
     color: 'darkgrey',
-    textDecorationLine: 'underline'
+    fontSize: 20 ,
+    top: 100,
   },
   textstyle2: {
     fontWeight: 'bold',
     color: 'darkgrey',
-    marginTop:-150 ,
-    marginBottom: 100 ,
-    textDecorationLine: 'underline'
+    position: 'absolute',
+    fontSize: 20 ,
+    top:450,
   },
   container: {
-    position: 'absolute',
-    flex:1,
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
+    justifyContent:'center',
     alignItems:'center',
     backgroundColor: '#fff',
-    justifyContent: 'center',
   },
 });
