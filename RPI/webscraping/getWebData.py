@@ -17,9 +17,9 @@ def retriveData(webpageIP,outputJsonFileName,htmlTags):
     for htmlTag in ast.literal_eval(htmlTags):
         tds = soup.find_all(htmlTag)
         for td in tds:
-            if htmlTag != "img":
+            if htmlTag == "div":
                 texts[td.get("class")[0]] = td.text
-            else:
+            elif htmlTag == "img":
                 texts["imageLink"] = td.get("src")
 
 
